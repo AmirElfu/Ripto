@@ -3,6 +3,9 @@ Ripto
 
 Ripto is a small desktop GUI that displays cryptocurrency prices (in Toman) using a Slint UI and a Rust backend.
 
+<img width="512" height="639" alt="Screenshot_20251231_005245" src="https://github.com/user-attachments/assets/42a0bddf-e7d0-43ca-9744-eb293c24b189" />
+
+
 Quick links
 -----------
 
