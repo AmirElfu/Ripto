@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Ripto
+Exec=/usr/bin/ripto
+Icon=ripto
+StartupWMClass=slint-rust-template
+Categories=Utility;

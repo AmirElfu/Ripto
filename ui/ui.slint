@@ -1,0 +1,55 @@
+import { VerticalBox, HorizontalBox, Button, ScrollView } from "std-widgets.slint";
+
+struct Coin {
+    symbol: string,
+    price: string,
+}
+
+export component AppWindow inherits Window {
+    title: "Ripto";
+    width: 500px;
+    height: 600px;
+    
+    // khastam :)
+    icon: @image-url("../icons/icon.png");
+
+    in-out property <[Coin]> coins: [];
+    in-out property <string> exchange_rate: "نرخ تبدیل...";
+
+    callback request_update();
+
+    VerticalBox {
+        spacing: 10px;
+
+        HorizontalBox {
+            Text {
+                text: exchange_rate;
+                font-size: 14px;
+                horizontal-alignment: center;
+            }
+        }
+
+        HorizontalBox {
+            Button {
+                text: "بروزرسانی";
+                clicked => { request_update(); }
+            }
+            Button { text: "قیمت لحظه‌ای"; }
+        }
+
+        ScrollView {
+            VerticalBox {
+                for coin in coins: HorizontalBox {
+                    Button { text: coin.symbol; }
+                    Button { text: coin.price; }
+                }
+            }
+        }
+    }
+
+    Timer {
+        interval: 70000ms;
+        running: true;
+        triggered => { request_update(); }
+    }
+}
